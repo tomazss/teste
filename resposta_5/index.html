@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversão de palavras</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="../estilo.css">
+
+    
+     
+    
+
+<h1>inversão de palavras </h1>
+
+
+</head>
+<body>
+
+
+ 
+  <div class="input-group  " id="Etexto">
+    <div class="input-group justify-content-center m-5 ">
+        
+        <input class="form-control form-control-lg" type="text" name="texto" id="texto" value="" placeholder="digite o texto ">
+    </div>
+    
+
+</div>
+<div class="row">
+<div class="col">
+<div class="d-flex justify-content-center mt-5">
+  <button type="button" class="btn btn-success btn-lg" onclick="Inverter()">Inverter</button>
+</div>
+</div>
+</div>
+</div>
+<div id="res" class="text-info justify-content-center mt-5">
+
+</div>
+
+</section>
+
+<a href="../index.html">Home</a>
+
+</body>
+<footer>
+  <p>&copy; tomaz s.sampaio</p>
+  
+  </footer>
+  <script>
+
+    function Inverter(){
+    
+      // Definindo a string a ser invertida
+    let str = document.getElementById('texto').value
+    
+
+    let res = document.getElementById('res')
+    
+    // Variável para armazenar a string invertida
+    let strInvertida = "";
+    
+    // Loop for para percorrer a string de trás para frente
+    for (let i = str.length - 1; i >= 0; i--) {
+      // Concatenando cada caractere na nova string
+      strInvertida += str[i];
+      
+    
+    }
+     if(str.length > 1){
+      console.log(strInvertida)
+    res.innerHTML = `<p> O contrário de <strong>${str}</strong> é : <strong>${strInvertida}</strong></p>`
+    
+
+    }else{
+      res.innerHTML= "ERRO digite pelo menos 2 letras"
+    }
+    limpar()
+
+     }   
+
+    
+    
+    function limpar() {
+            document.getElementById('texto').value = "";
+}
+    
+    
+    
+        
+    </script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+</head>
+<body>
+    
+<div id="res">
+
+</div>
+
+<a href="../index.html">Home</a>
+    <script>
+
+        let divRes = document.querySelector('#res')
+       // Objeto com os valores de faturamento mensal por estado
+const faturamentoPorEstado = {
+  SP: 67836.43,
+  RJ: 36678.66,
+  MG: 29229.88,
+  ES: 27165.48,
+  Outros: 19849.53
+};
+
+// Cálculo do valor total mensal da distribuidora
+const valorTotalMensal = Object.values(faturamentoPorEstado).reduce((total, valor) => total + valor, 0);
+
+// Cálculo do percentual de representação de cada estado
+const representacaoPorEstado = {};
+for (let estado in faturamentoPorEstado) {
+  representacaoPorEstado[estado] = (faturamentoPorEstado[estado] / valorTotalMensal) * 100;
+}
+
+// Exibição dos resultados
+console.log("Valor total mensal da distribuidora: R$" + valorTotalMensal.toFixed(2));
+for (let estado in representacaoPorEstado) {
+  divRes.innerHTML += `<li>${estado}  :   ${representacaoPorEstado[estado].toFixed(2)} %</li>`;
+}
+    </script>
+</body>
+</html>
